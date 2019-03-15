@@ -13,7 +13,8 @@
     "discord.js": "^11.4.2",
     "enmap": "^4.8.1",
     "express": "^4.16.4",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "fortnitetracker-7days-stats": "^3.1.2"
   },
   "engines": {
     "node": "8.x"

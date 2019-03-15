@@ -27,6 +27,7 @@ bot.on('ready', function() {
     }
   }, 10000);
 });
+
 bot.on('guildMemberAdd', member => {
 let logChannel = member.guild.channels.find('name', '「」join-leave');
 
@@ -39,6 +40,11 @@ let logChannel = member.guild.channels.find('name', '「」join-leave');
   logChannel.send(logEmbed);
       let role = member.guild.roles.find("name", "No Rank");
     member.addRole(role).catch(console.error);
+    let humans = member.guild.members.filter(m => !m.user.bot).size;
+    member.guild.channels.get('556076758760423425').setName(`「👥」Member Count: ${humans}`)
+    let bots = member.guild.members.filter(m => m.user.bot).size;
+    member.guild.channels.get('556076772140253184').setName(`「🤖」Bot Count: ${bots}`)
+  
 })
 bot.on('guildMemberRemove', member => {
 let logChannel = member.guild.channels.find('name', '「」join-leave');
@@ -50,6 +56,10 @@ let logChannel = member.guild.channels.find('name', '「」join-leave');
   .setColor('#fc4a4a')
   .setTimestamp()
   logChannel.send(logEmbed);
+    let humans = member.guild.members.filter(m => !m.user.bot).size;
+    member.guild.channels.get('556076758760423425').setName(`「👥」Member Count: ${humans}`)
+    let bots = member.guild.members.filter(m => m.user.bot).size;
+    member.guild.channels.get('556076772140253184').setName(`「🤖」Bot Count: ${bots}`)
 });
 bot.on("guildCreate", guild => {
   //  when the bot joins a guild.
@@ -79,4 +89,4 @@ bot.on("guildDelete", guild => {
   Create.send(logEmbed);
 });
 
-bot.login(config.token);
+  bot.login(config.token);
